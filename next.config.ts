@@ -1,6 +1,7 @@
+import type { NextConfig } from "next";
+
 const prod = process.env.NODE_ENV === "production";
 
-/** @type {import('next').NextConfig} */
 const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
@@ -8,9 +9,14 @@ const withPWA = require("next-pwa")({
   disable: prod ? false : true,
 });
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
-    domains: ["cdn.imagin.studio"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.imagin.studio",
+      },
+    ],
   },
 };
 

@@ -1,24 +1,23 @@
-import { Hero, CustomFilter, SearchBar, CarCard, ShowMore } from "@/components";
+import { Hero, CustomFilter, SearchBar, CarCard } from "@/components";
 import { fetchCars } from "@/utils";
 import { fuels, yearsOfProduction } from "@/constants";
 import { FilterProps } from "@/types";
 
-const CARS_PER_PAGE = 10; // cars per page
-
 // searchParams interface
 interface searchParamsProps {
-  searchParams: FilterProps;
+  searchParams: Promise<FilterProps>;
 }
 
 // home
 export default async function Home({ searchParams }: searchParamsProps) {
+  const { fuel, manufacturer, model, year } = await searchParams;
+
   // fetch all cars from api
   const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer || "",
-    year: searchParams.year || new Date().getFullYear(),
-    fuel: searchParams.fuel || "",
-    limit: searchParams.limit || CARS_PER_PAGE,
-    model: searchParams.model || "",
+    manufacturer: manufacturer || "",
+    year: year || 2020,
+    fuel: fuel || "",
+    model: model || "",
   });
 
   // is car data empty
@@ -58,12 +57,6 @@ export default async function Home({ searchParams }: searchParamsProps) {
                 <CarCard car={car} key={`car-${i}`} />
               ))}
             </div>
-
-            {/* show more button */}
-            <ShowMore
-              pageNumber={(searchParams.limit || CARS_PER_PAGE) / CARS_PER_PAGE}
-              isNext={(searchParams.limit || CARS_PER_PAGE) > allCars.length}
-            />
           </section>
         ) : (
           // No results found

@@ -3,7 +3,13 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Listbox, Transition } from "@headlessui/react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Transition,
+} from "@headlessui/react";
 
 import { CustomFilterProps } from "@/types";
 import { updateSearchParams } from "@/utils";
@@ -33,7 +39,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
         }}
       >
         <div className="relative w-fit z-10">
-          <Listbox.Button className="custom-filter__btn">
+          <ListboxButton className="custom-filter__btn">
             {/* current selected value */}
             <span className="block truncate">{selected.title}</span>
             {/* chevron up down icon */}
@@ -44,7 +50,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
               className="ml-4 object-contain"
               alt="chevron up down"
             />
-          </Listbox.Button>
+          </ListboxButton>
 
           {/* options */}
           <Transition
@@ -53,10 +59,10 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="custom-filter__options">
+            <ListboxOptions className="custom-filter__options">
               {options.map((option) => (
                 // single option
-                <Listbox.Option
+                <ListboxOption
                   key={option.title}
                   value={option}
                   className={({ active }) =>
@@ -75,9 +81,9 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
                       {option.title}
                     </span>
                   )}
-                </Listbox.Option>
+                </ListboxOption>
               ))}
-            </Listbox.Options>
+            </ListboxOptions>
           </Transition>
         </div>
       </Listbox>

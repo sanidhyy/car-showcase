@@ -22,12 +22,12 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 
 // search bar
 const SearchBar = () => {
-  const [manufacturer, setManufacturer] = useState(""); // car manufacturer
+  const [manufacturer, setManufacturer] = useState<string>(""); // car manufacturer
   const [model, setModel] = useState(""); // car model
   const router = useRouter(); // use router
 
   // handle car search
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e: React.SubmitEvent) => {
     // prevent browser reload
     e.preventDefault();
 

@@ -15,12 +15,24 @@ interface CarCardProps {
 // Car Card
 const CarCard = ({ car }: CarCardProps) => {
   // extract car data
-  const { city_mpg, year, make, model, transmission, drive } = car;
+  const {
+    city_mpg,
+    year,
+    make,
+    model,
+    transmission,
+    drive,
+    displacement,
+    fuel_type,
+  } = car;
   // is modal open
   const [isOpen, setIsOpen] = useState(false);
 
   // calculate car rent
-  const carRent = calculateCarRent(city_mpg, year);
+  const carRent = calculateCarRent(
+    Number(displacement) || 3,
+    Number(year) || 2020,
+  );
 
   return (
     <article className="car-card group">
@@ -77,7 +89,7 @@ const CarCard = ({ car }: CarCardProps) => {
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
 
-            <p className="text-[14px]">{city_mpg} MPG</p>
+            <p className="text-[14px]">{fuel_type.toUpperCase()}</p>
           </div>
         </div>
 

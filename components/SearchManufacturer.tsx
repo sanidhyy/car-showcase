@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import { useState, Fragment } from "react";
-import { Combobox, Transition } from "@headlessui/react";
+import {
+  Combobox,
+  ComboboxButton,
+  ComboboxInput,
+  ComboboxOption,
+  ComboboxOptions,
+  Transition,
+} from "@headlessui/react";
 
 import { manufacturers } from "@/constants";
 import { SearchManufacturerProps } from "@/types";
@@ -22,16 +29,19 @@ const SearchManufacturer = ({
           item
             .toLowerCase()
             .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
+            .includes(query.toLowerCase().replace(/\s+/g, "")),
         );
 
   return (
     <div className="search-manufacturer">
       {/* combo box (autocomplete search box) */}
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox
+        value={manufacturer}
+        onChange={(manufacturer) => setManufacturer(manufacturer || "")}
+      >
         <div className="relative w-full">
           {/* sample car manufacurer logo */}
-          <Combobox.Button className="absolute top-[14px]">
+          <ComboboxButton className="absolute top-[14px]">
             <Image
               src="/car-logo.svg"
               alt="car logo"
@@ -39,10 +49,10 @@ const SearchManufacturer = ({
               height={20}
               className="ml-4"
             />
-          </Combobox.Button>
+          </ComboboxButton>
 
           {/* car manufacurer input */}
-          <Combobox.Input
+          <ComboboxInput
             className="search-manufacturer__input"
             placeholder="Volkswagen"
             displayValue={(manufacturer: string) => manufacturer}
@@ -57,10 +67,10 @@ const SearchManufacturer = ({
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options>
+            <ComboboxOptions>
               {/* show filtered manufacturers */}
               {filteredManufacturers.map((item) => (
-                <Combobox.Option
+                <ComboboxOption
                   key={item}
                   className={({ active }) => `
                       relative search-manufacturer__option ${
@@ -89,9 +99,9 @@ const SearchManufacturer = ({
                       ) : null}
                     </>
                   )}
-                </Combobox.Option>
+                </ComboboxOption>
               ))}
-            </Combobox.Options>
+            </ComboboxOptions>
           </Transition>
         </div>
       </Combobox>

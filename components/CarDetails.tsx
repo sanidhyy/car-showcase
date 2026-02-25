@@ -2,7 +2,12 @@
 
 import { Fragment } from "react";
 import Image from "next/image";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 
 import { generateCarImageUrl } from "@/utils";
 import { CarProps } from "@/types";
@@ -16,12 +21,18 @@ interface CarDetailsProps {
 
 // car details
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
+  // omit car details only for premium subscribers
+  const carDetails = Object.entries(car).filter(
+    ([_key, value]) =>
+      !String(value).toLowerCase().includes("premium subscribers"),
+  );
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           {/* model background shadow */}
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
             enterFrom="opacity-0"
@@ -31,11 +42,11 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
             leaveTo="opacity-0"
           >
             <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
+          </TransitionChild>
 
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
+              <TransitionChild
                 as={Fragment}
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 scale-95"
@@ -44,7 +55,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                <DialogPanel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
                   {/* close button */}
                   <button
                     type="button"
@@ -118,7 +129,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
 
                     {/* car details */}
                     <div className="mt-3 flex flex-wrap gap-4">
-                      {Object.entries(car).map(([key, value]) => (
+                      {carDetails.map(([key, value]) => (
                         <div
                           className="flex justify-between gap-5 w-full text-white capitalize"
                           key={key}
@@ -135,8 +146,8 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       ))}
                     </div>
                   </div>
-                </Dialog.Panel>
-              </Transition.Child>
+                </DialogPanel>
+              </TransitionChild>
             </div>
           </div>
         </Dialog>

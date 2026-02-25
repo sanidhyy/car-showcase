@@ -3,7 +3,7 @@ import { CarProps, FilterProps } from "@/types";
 // fetch cars data
 export async function fetchCars(filters: FilterProps) {
   // extract filters
-  const { manufacturer, year, model, limit, fuel } = filters;
+  const { manufacturer, year, model, fuel } = filters;
   // api headers
   const headers = {
     "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
@@ -12,8 +12,8 @@ export async function fetchCars(filters: FilterProps) {
 
   // api response
   const response = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
-    { headers: headers }
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&fuel_type=${fuel}`,
+    { headers: headers },
   );
 
   // fetch result
@@ -24,17 +24,19 @@ export async function fetchCars(filters: FilterProps) {
 }
 
 // calculate car rent
-export const calculateCarRent = (city_mpg: number, year: number) => {
+export const calculateCarRent = (displacement: number, year: number) => {
   const basePricePerDay = 50; // base rental price per day in dollars
-  const mileageFactor = 0.1; // additional rate per mile driven
+  const engineFactor = 5; // additional rate per liter of engine displacement
   const ageFactor = 0.05; // additional rate per year of vehicle age
 
-  // calculate additional rate based on mileage and age
-  const mileageRate = city_mpg * mileageFactor;
+  // calculate additional rate based on engine size (acting as a proxy for vehicle tier)
+  const performanceRate = displacement * engineFactor;
+
+  // calculate additional rate based on age
   const ageRate = (new Date().getFullYear() - year) * ageFactor;
 
   // calculate total rental rate per day
-  const rentalRatePerDay = basePricePerDay + mileageRate + ageRate;
+  const rentalRatePerDay = basePricePerDay + performanceRate + ageRate;
 
   return rentalRatePerDay.toFixed(0);
 };
@@ -49,7 +51,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   // append api key
   url.searchParams.append(
     "customer",
-    process.env.NEXT_PUBLIC_CAR_IMAGE_API_KEY || ""
+    process.env.NEXT_PUBLIC_CAR_IMAGE_API_KEY || "",
   );
 
   // append car details

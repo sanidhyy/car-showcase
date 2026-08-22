@@ -23,7 +23,7 @@ NEXT_PUBLIC_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXX
 NEXT_PUBLIC_CAR_IMAGE_API_KEY=XXXXXXXXXXXXXXXXXXXX
 ```
 
-5. Open terminal in root directory. Run `npm install` or `yarn install`.
+5. Open terminal in root directory. Run `npm install` or `bun install`.
 
 6. Now, to setup API, go to [Rapid API Website](https://rapidapi.com/ "Rapid API Website") and create an account.
 
@@ -35,7 +35,7 @@ NEXT_PUBLIC_CAR_IMAGE_API_KEY=XXXXXXXXXXXXXXXXXXXX
 
 10. Now paste your API Keys in `.env` file in `NEXT_PUBLIC_CAR_IMAGE_API_KEY`.
 
-11. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `yarn run dev`.
+11. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `bun dev`.
 
 **NOTE:** Make sure you don't share these keys publicaly.
 
@@ -91,8 +91,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## :page_with_curl: Deploy on Netlify
 
-The simplest way to deploy your React.js app is to use the [Netlify Platform](https://app.netlify.com/start) - a powerful platform for modern web projects.
+The simplest way to deploy your Next.js app is to use the [Netlify Platform](https://app.netlify.com/start) - a powerful platform for modern web projects.
 
-Explore the [Netlify deployment documentation](https://docs.netlify.com/site-deploys/create-deploys) for step-by-step instructions on deploying your React.js app on Netlify.
+Explore the [Netlify deployment documentation](https://docs.netlify.com/site-deploys/create-deploys) for step-by-step instructions on deploying your Next.js app on Netlify.
 
 Happy coding, and feel free to share your thoughts and improvements with the [Netlify community](https://community.netlify.com)!

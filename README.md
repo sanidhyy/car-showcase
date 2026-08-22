@@ -7,7 +7,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/sanidhyy/car-showcase/commits/main "Maintenance")
 [![GitHub branches](https://badgen.net/github/branches/sanidhyy/car-showcase)](https://github.com/sanidhyy/car-showcase/branches "GitHub branches")
 [![Github commits](https://badgen.net/github/commits/sanidhyy/car-showcase/main)](https://github.com/sanidhyy/car-showcase/commits "Github commits")
-[![Vercel status](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://carhb.vercel.app/ "Vercel status")
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c50c31eb-22c7-4276-9ba9-61fbd3c3bf68/deploy-status)](https://carhb.netlify.app "Netlify Status")
 [![GitHub issues](https://img.shields.io/github/issues/sanidhyy/car-showcase)](https://github.com/sanidhyy/car-showcase/issues "GitHub issues")
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/sanidhyy/car-showcase)](https://github.com/sanidhyy/car-showcase/pulls "GitHub pull requests")
 
@@ -89,8 +89,10 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## :page_with_curl: Deploy on Vercel
+## :page_with_curl: Deploy on Netlify
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The simplest way to deploy your React.js app is to use the [Netlify Platform](https://app.netlify.com/start) - a powerful platform for modern web projects.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Explore the [Netlify deployment documentation](https://docs.netlify.com/site-deploys/create-deploys) for step-by-step instructions on deploying your React.js app on Netlify.
+
+Happy coding, and feel free to share your thoughts and improvements with the [Netlify community](https://community.netlify.com)!

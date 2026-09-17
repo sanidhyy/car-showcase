@@ -1,4 +1,4 @@
-import { Hero, CustomFilter, SearchBar, CarCard } from "@/components";
+import { Hero, CustomFilter, SearchBar, CarCard, ShowMore } from "@/components";
 import { fetchCars } from "@/utils";
 import { fuels, yearsOfProduction } from "@/constants";
 import { FilterProps } from "@/types";
@@ -10,14 +10,16 @@ interface searchParamsProps {
 
 // home
 export default async function Home({ searchParams }: searchParamsProps) {
-  const { fuel, manufacturer, model, year } = await searchParams;
+  const { fuel, manufacturer, model, year, limit } = await searchParams;
+  const resultLimit = Number(limit) || 10;
 
   // fetch all cars from api
   const allCars = await fetchCars({
     manufacturer: manufacturer || "",
-    year: year || 2020,
+    year: year ? Number(year) : undefined,
     fuel: fuel || "",
     model: model || "",
+    limit: resultLimit,
   });
 
   // is car data empty
@@ -57,12 +59,17 @@ export default async function Home({ searchParams }: searchParamsProps) {
                 <CarCard car={car} key={`car-${i}`} />
               ))}
             </div>
+
+            <ShowMore
+              pageNumber={resultLimit / 10}
+              isNext={resultLimit > allCars.length}
+            />
           </section>
         ) : (
           // No results found
           <div className="home__error-container">
             <h2 className="text-black text-xl text-bold">Oops, no results</h2>
-            <p>{allCars?.message}</p>
+            <p>Try a different manufacturer, model, or filter.</p>
           </div>
         )}
       </div>

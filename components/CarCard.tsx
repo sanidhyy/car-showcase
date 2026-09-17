@@ -82,14 +82,14 @@ const CarCard = ({ car }: CarCardProps) => {
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/tire.svg" width={20} height={20} alt="tire" />
 
-            <p className="text-[14px]">{drive.toUpperCase()}</p>
+            <p className="text-[14px]">{drive?.toUpperCase() || "N/A"}</p>
           </div>
 
           {/* miles per gallon */}
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
 
-            <p className="text-[14px]">{fuel_type.toUpperCase()}</p>
+            <p className="text-[14px]">{fuel_type?.toUpperCase() || "N/A"}</p>
           </div>
         </div>
 

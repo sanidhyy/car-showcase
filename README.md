@@ -19,7 +19,7 @@
 4. Contents of **.env.local**:
 
 ```
-NEXT_PUBLIC_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXX
+RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXX
 ```
 
 5. Open terminal in root directory. Run `npm install` or `pnpm install`.
@@ -28,7 +28,7 @@ NEXT_PUBLIC_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXX
 
 7. Enable this API to fetch Cars data: [API: Cars by API Ninjas](https://rapidapi.com/apininjas/api/cars-by-api-ninjas/ "API: Cars by API Ninjas").
 
-8. After enabling you can get your API Keys and paste them in `.env.local` file in `NEXT_PUBLIC_RAPID_API_KEY`.
+8. After enabling you can get the API Key and paste it in `.env.local` file in `RAPID_API_KEY`.
 
 9. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `pnpm dev`.
 

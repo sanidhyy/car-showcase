@@ -101,30 +101,6 @@ export const calculateCarRent = (displacement: number, year: number) => {
   return rentalRatePerDay.toFixed(0);
 };
 
-// generate car image url
-export const generateCarImageUrl = (car: CarProps, angle?: string) => {
-  // base url
-  const url = new URL("https://cdn.imagin.studio/getimage");
-  // extract car data
-  const { make, year, model } = car;
-
-  // append api key
-  url.searchParams.append(
-    "customer",
-    process.env.NEXT_PUBLIC_CAR_IMAGE_API_KEY || "",
-  );
-
-  // append car details
-  url.searchParams.append("make", make);
-  url.searchParams.append("modelFamily", model.split(" ")[0]);
-  url.searchParams.append("zoomType", "fullscreen");
-  url.searchParams.append("modelYear", `${year}`);
-  url.searchParams.append("angle", `${angle}`);
-
-  // return updated url
-  return `${url}`;
-};
-
 // update search params
 export const updateSearchParams = (type: string, value: string) => {
   // get current search params

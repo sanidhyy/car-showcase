@@ -9,15 +9,6 @@ const withPWA = require("next-pwa")({
   disable: prod ? false : true,
 });
 
-const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.imagin.studio",
-      },
-    ],
-  },
-};
+const nextConfig: NextConfig = {};
 
 module.exports = withPWA(nextConfig);

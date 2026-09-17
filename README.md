@@ -20,7 +20,6 @@
 
 ```
 NEXT_PUBLIC_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXX
-NEXT_PUBLIC_CAR_IMAGE_API_KEY=XXXXXXXXXXXXXXXXXXXX
 ```
 
 5. Open terminal in root directory. Run `npm install` or `pnpm install`.
@@ -31,11 +30,7 @@ NEXT_PUBLIC_CAR_IMAGE_API_KEY=XXXXXXXXXXXXXXXXXXXX
 
 8. After enabling you can get your API Keys and paste them in `.env.local` file in `NEXT_PUBLIC_RAPID_API_KEY`.
 
-9. To fetch car image details, go to [Car Image API](https://www.imagin.studio/car-image-api "Car Image API") and create and account.
-
-10. Now paste your API Keys in `.env.local` file in `NEXT_PUBLIC_CAR_IMAGE_API_KEY`.
-
-11. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `pnpm dev`.
+9. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `pnpm dev`.
 
 **NOTE:** Make sure you don't share these keys publicaly.
 

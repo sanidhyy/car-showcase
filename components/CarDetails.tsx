@@ -9,7 +9,6 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 
-import { generateCarImageUrl } from "@/utils";
 import { CarProps } from "@/types";
 
 // car details interface
@@ -76,7 +75,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     {/* car top image */}
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
-                        src={generateCarImageUrl(car)}
+                        src="/hero.png"
                         alt={`${car.make} ${car.model}`}
                         fill
                         priority
@@ -89,7 +88,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       {/* image 1 */}
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src={generateCarImageUrl(car, "29")}
+                          src="/hero.png"
                           alt={`${car.make} ${car.model}`}
                           fill
                           priority
@@ -100,7 +99,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         {/* image 2 */}
                         <Image
-                          src={generateCarImageUrl(car, "33")}
+                          src="/hero.png"
                           alt={`${car.make} ${car.model}`}
                           fill
                           priority
@@ -111,7 +110,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         {/* image 3 */}
                         <Image
-                          src={generateCarImageUrl(car, "13")}
+                          src="/hero.png"
                           alt={`${car.make} ${car.model}`}
                           fill
                           priority

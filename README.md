@@ -23,19 +23,19 @@ NEXT_PUBLIC_RAPID_API_KEY=XXXXXXXXXXXXXXXXXXXX
 NEXT_PUBLIC_CAR_IMAGE_API_KEY=XXXXXXXXXXXXXXXXXXXX
 ```
 
-5. Open terminal in root directory. Run `npm install` or `bun install`.
+5. Open terminal in root directory. Run `npm install` or `pnpm install`.
 
 6. Now, to setup API, go to [Rapid API Website](https://rapidapi.com/ "Rapid API Website") and create an account.
 
 7. Enable this API to fetch Cars data: [API: Cars by API Ninjas](https://rapidapi.com/apininjas/api/cars-by-api-ninjas/ "API: Cars by API Ninjas").
 
-8. After enabling you can get your API Keys and paste them in `.env` file in `NEXT_PUBLIC_RAPID_API_KEY`.
+8. After enabling you can get your API Keys and paste them in `.env.local` file in `NEXT_PUBLIC_RAPID_API_KEY`.
 
 9. To fetch car image details, go to [Car Image API](https://www.imagin.studio/car-image-api "Car Image API") and create and account.
 
-10. Now paste your API Keys in `.env` file in `NEXT_PUBLIC_CAR_IMAGE_API_KEY`.
+10. Now paste your API Keys in `.env.local` file in `NEXT_PUBLIC_CAR_IMAGE_API_KEY`.
 
-11. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `bun dev`.
+11. Now app is fully configured :+1: and you can start using this app using `npm run dev` or `pnpm dev`.
 
 **NOTE:** Make sure you don't share these keys publicaly.
 
